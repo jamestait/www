@@ -3,6 +3,7 @@
 <!--#set var="content_title" value="Configuring SASL for XChat" -->
 <!--#include virtual="${VIRTROOT}include/header-mainlogos.shtml" -->
 
+<p><strong>NOTE</strong> XChat is no longer actively developed. You may instead wish to consider switching to <a href="https://hexchat.github.io/">HexChat</a>, which can <a href="https://hexchat.readthedocs.org/en/latest/faq.html#how-do-i-migrate-my-settings-from-xchat">use your current XChat settings</a>.</p>
 <p>There are multiple scripts available to support SASL in XChat. The Perl script is the most comprehensive, and most likely to work. Because of distribution-specific patches introduced in Debian and Ubuntu, the Python script may break in these distributions. The &quot;lite&quot; script is mostly kept for historical interest.</p>
 
 <h2 id="perl">Configuring SASL for XChat: Perl script</h2>
@@ -11,7 +12,7 @@
 <ol>
 	<li><p>Copy the script, <a href="http://lwsitu.com/xchat/cap_sasl_xchat.pl">cap_sasl_xchat.pl</a>, into your ~/.xchat directory, C:\Users\<i>USERNAME</i>\AppData\Roaming\X-Chat directory, or from wherever XChat loads startup scripts.</p></li>
 	<li><p>Load the script using the <span class="verbatim-i">/load</span> command, or select load script from the Scripts and Plugins menu.</p></li>
-	<li><p>The script needs to be configured with <span class="verbatim-i">/sasl set</span>. The network name (e.g. freenode &mdash; case matters), your registered nickname, NickServ password, and authentication mechanism will need to be provided. The authentication mechanism will be one of those returned by <span class="verbatim-i">/sasl mechanisms</span>, but note that since <span class="verbatim-i">DH-BLOWFISH</span> is not supported by <span class="freenode">freenode</span> anymore, you are currently limited to <span class="verbatim-i">PLAIN</span> with this script.</p></li>
+	<li><p>The script needs to be configured with <span class="verbatim-i">/sasl set</span>. The network name (e.g.  freenode &mdash; case matters), your registered nickname, NickServ password, and authentication mechanism will need to be provided. The authentication mechanism will be one of those returned by <span class="verbatim-i">/sasl mechanisms</span>, but note that since <span class="verbatim-i">DH-BLOWFISH</span> is not supported by <span class="freenode">freenode</span> anymore, you are currently limited to <span class="verbatim-i">PLAIN</span> with this script &ndash; as such, it is strongly recommended you secure your connection with SSL.</p></li>
 	<li><p>If you don't mind your password being saved to your hard drive or if you don't want to type the <span class="verbatim-i">/sasl set</span> command every time before you connect, you will need to do <span class="verbatim-i">/sasl save</span>.</p></li>
 	<li><p>If everything has been configured correctly, the next time you connect you should see the message:</p>
 		<span class="verbatim-b">SASL authentication successful</span></li>
